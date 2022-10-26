@@ -41,6 +41,7 @@ public class EmployeeClient {
         webClient = WebClient.builder()
                 .baseUrl("http://localhost:8080")
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+//                .defaultHeader(HttpHeaders.AUTHORIZATION, "Basic aWlwOmlpcA==")
                 .clientConnector(new ReactorClientHttpConnector(httpClient))
                 .build();
     }
