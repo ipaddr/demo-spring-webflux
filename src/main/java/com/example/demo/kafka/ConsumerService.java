@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ConsumerService {
-
     @Autowired
     private EmployeeMongoRepository employeeMongoRepository;
 
@@ -20,12 +19,9 @@ public class ConsumerService {
         this.employeeMongoRepository = employeeMongoRepository;
     }
 
-    @KafkaListener(topics = "newtopic", groupId = "spring-boot-api-consumer", containerFactory = "kafkaListenerContainerFactory")
+    @KafkaListener(topics = "newtopic", groupId = "spring-boot-api-consumer"
+            , containerFactory = "kafkaListenerContainerFactory")
     public void consume(String message){
-        EmployeeMongoDB employeeMongoDB = new EmployeeMongoDB();
-        employeeMongoDB.setFirstName("nama awal");
-        employeeMongoDB.setLastName("nama akhir");
-        employeeMongoDB.setEmail(message);
-        employeeMongoRepository.save(employeeMongoDB);
+        System.out.println(message);
     }
 }

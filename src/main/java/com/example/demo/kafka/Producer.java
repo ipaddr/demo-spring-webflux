@@ -26,20 +26,20 @@ public final class Producer {
     }
 
     public void sendMessage(String message){
-        ListenableFuture<SendResult<String, String>> future =
+//        ListenableFuture<SendResult<String, String>> future =
                 kafkaTemplate.send(newTopic.name(), message);
 
-        future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
-            @Override
-            public void onFailure(Throwable ex) {
-                logger.error("faild to send message", ex);
-            }
-
-            @Override
-            public void onSuccess(SendResult<String, String> result) {
-                logger.info("sent message successfully");
-            }
-        });
+//        future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
+//            @Override
+//            public void onFailure(Throwable ex) {
+//                logger.error("faild to send message", ex);
+//            }
+//
+//            @Override
+//            public void onSuccess(SendResult<String, String> result) {
+//                logger.info("sent message successfully");
+//            }
+//        });
     }
 
 }

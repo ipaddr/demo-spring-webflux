@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/kafka")
+@RequestMapping("api-reactive")
 public class RestEmployeeController {
 
     @Autowired
@@ -27,7 +27,7 @@ public class RestEmployeeController {
         return  employeeMongoRepository.findAll();
     }
 
-    @RequestMapping(value = "employee-get", method = RequestMethod.GET)
+    @RequestMapping(value = "employee-kafka", method = RequestMethod.GET)
     public void addEmployeeMongoDB(@RequestParam("msg") String message){
         producer.sendMessage(message);
     }
